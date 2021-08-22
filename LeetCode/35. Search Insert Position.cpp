@@ -3,26 +3,26 @@ using namespace std;
 
 class Solution {
 public:
-int searchInsert(vector<int>& a, int t) {
+int searchInsert(vector<int>& nums, int t) {
     int l=0;
-    int h=a.size()-1;
+    int h=nums.size()-1;
     while(l<=h)
     {
         int mid=l+(h-l)/2;
 
-    cout<<a[mid]<<endl;
-        if(a[mid]==t)
+
+        if(nums[mid]==t)
         {
 
             return mid;
         }
-        else if(a[mid]>t)
+        else if(nums[mid]>t)
         {
 
 
             h=mid-1;
         }
-        else if(a[mid]<t)
+        else if(nums[mid]<t)
         {
             l=mid+1;
         }
