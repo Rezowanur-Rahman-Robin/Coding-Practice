@@ -57,10 +57,7 @@ public:
 
             if(counting == m*n )
                 return spiralMatrix;
-
-        }
-
-
+              }
 
         return spiralMatrix;
 
