@@ -9,12 +9,23 @@ main proc
     
     mov ah,1
     int 21h
-    mov a,ax 
+    mov a,ax  
+    
+    mov ah,2
+    mov dl,' '
+    int 21h 
+    
     
     
     mov ah,1
     int 21h
-    mov bx,ax
+    mov bx,ax  
+    
+    mov ah,2
+    mov dl,10
+    int 21h
+    mov dl,13
+    int 21h  
     
     
     sub bx,a
@@ -27,7 +38,12 @@ main proc
     
     mov ah,2
     mov dx,a
+    int 21h  
+    
+    mov ah,2
+    mov dl,' '
     int 21h
+    
     inc a
     
     loop level

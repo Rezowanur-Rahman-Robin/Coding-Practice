@@ -1,41 +1,35 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void optimalPageReplacement(string str,int capacity){
-  int length = str.size();
+void optimalPageReplacement(string pages,int capacity){
+  int length = pages.size();
 
-  vector<char> vec;
-
+  vector<char> frame;
   int hitcount=0;
 
   for(int i=0;i<length;i++){
-    if(vec.size()<capacity){
-        vec.push_back(str[i]);
+    if(frame.size()<capacity){
+        frame.push_back(pages[i]);
     }else{
-
         bool found=false;
         for(int j=0;j<capacity;j++){
-            if(str[i]==vec[j]){
+            if(pages[i]==frame[j]){
                 hitcount++;
                 found=true;
                 break;
             }
         }
-
         if(!found){
                 int maxdis=0;
                 int target;
-
             for(int j=0;j<capacity;j++){
                 bool elementFound= false;
                 for(int k=i+1;k<length;k++){
-                    if(vec[j]==str[k]){
+                    if(frame[j]==pages[k]){
                             elementFound = true;
-
                         int distance = k-i;
                         if(distance>maxdis){
                             maxdis = distance;
-
                             target=j;
                         }
                     }
@@ -45,20 +39,12 @@ void optimalPageReplacement(string str,int capacity){
                     break;
                 }
             }
-
-            vec[target]=str[i];
+            frame[target]=pages[i];
         }
-
-
     }
-
-    for(int j=0;j<capacity;j++){
-        cout<<vec[j]<<" ";
-    }
-    cout<<endl;
   }
-
-  cout<<hitcount<<endl;
+  cout<<"No of Hit:"<<hitcount<<endl;
+  cout<<"No of Miss:"<<pages.size() - hitcount<<endl;
 }
 
 int main(){
@@ -66,8 +52,12 @@ int main(){
 string str;
 int capacity;
 
+cout<<"Enter reference string:"<<endl;
 cin>>str;
+
+cout<<"Enter Frame Capacity:"<<endl;
 cin>>capacity;
+
 optimalPageReplacement(str,capacity);
 
 return 0;
