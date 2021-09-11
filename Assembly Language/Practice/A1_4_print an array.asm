@@ -9,7 +9,6 @@ b db ']$'
 array db 50 dup<?>
 
 
- 
 main proc
     
     mov ax,@data
