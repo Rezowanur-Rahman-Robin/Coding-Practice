@@ -2,8 +2,7 @@
 .stack 100h
 .code
 
-
-main proc                 ;like main function 
+main proc                 ;like main function as in programming has
     mov ah,1              ;for taking integer input
     int 21h
     mov bl,al             ;by default all the data is inside al.so now we are moving al data to bl register
