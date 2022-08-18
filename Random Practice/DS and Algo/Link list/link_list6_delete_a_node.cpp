@@ -46,6 +46,33 @@ Node* takeInputLinkList(){
     }
     return head ;
 }
+///without memory leak
+Node* deleteithNode(Node* head, int i){
+   if(i<0){
+      return head;
+   }
+   if(i==0 && head){
+    Node* newHead = head->next;
+    head->next = NULL;
+    delete head;
+    return newHead;
+   }
+
+   Node* curr = head;
+   int count = 1;
+   while(count<=i-1 && curr!=NULL){
+    curr = curr->next;
+    count++;
+   }
+   if(curr && curr->next){
+     Node *temp = curr->next;
+     curr->next = curr->next->next;
+     temp->next=NULL;
+     delete temp;
+     return head;
+   }
+   return head;
+}
 
 Node* deleteAtIthNode(Node *head , int targetIndex){
 
@@ -69,7 +96,7 @@ Node* deleteAtIthNode(Node *head , int targetIndex){
 
             i++;
         }
-        if(temp != NULL){
+        if(temp != NULL && temp->next !=NULL){
             ///delete at mid node
             temp->next = ((temp->next)->next);
 
