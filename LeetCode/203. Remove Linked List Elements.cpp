@@ -49,25 +49,10 @@ ListNode* takeInputLinkList(){
 class Solution {
 public:
     ListNode* removeElements(ListNode* head, int val) {
-
-        ListNode* temp = head;
-
-
-        while(temp != NULL){
-
-            if(temp ==head &&  temp->val == val){
-                temp = temp->next;
-            }
-
-            if(temp->next !=NULL){
-                if((temp->next)->val == val){
-                    temp->next = temp->next->next;
-                }
-            }
-         temp= temp->next;
-        }
+        if(head == NULL) return NULL;
+        if(head->val == val) head = removeElements(head->next, val);
+        else head->next = removeElements(head->next, val);
         return head;
-
     }
 };
 
