@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1671626537 source:d:\my programs\c programming full course\project\phonebook\main.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<stdlib.h>
+	<windows.h>
+

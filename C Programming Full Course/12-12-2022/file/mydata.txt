@@ -1,0 +1,90 @@
+Person no:1
+Name: abir
+Father Name:ahsan
+Age:eleven
+Favorite Color:white
+-------------------------
+Person no:2
+Name: b
+Father Name:c
+Age:d
+Favorite Color:r
+-------------------------
+Person no:3
+Name: fahmida
+Father Name:x
+Age:20
+Favorite Color:pink
+-------------------------
+Person no:4
+Name: sadia
+Father Name:y
+Age:15
+Favorite Color:green
+-------------------------
+Person no:5
+Name: razu
+Father Name:p
+Age:56
+Favorite Color:gray
+-------------------------
+--------------------------Person no:1
+-----------------------------Name: fasd
+Father Name:asdf
+Age:asd
+Favorite Color:fasd
+-------------------------
+--------------------------Person no:2
+-----------------------------Name: f
+Father Name:asdf
+Age:adsf
+Favorite Color:asdf
+-------------------------
+--------------------------Person no:3
+-----------------------------Name: asd
+Father Name:f
+Age:asdf
+Favorite Color:asdf
+-------------------------
+--------------------------Person no:4
+-----------------------------Name: asd
+Father Name:fasd
+Age:fasd
+Favorite Color:f
+-------------------------
+--------------------------Person no:5
+-----------------------------Name: asdfasd
+Father Name:fasdf
+Age:asdf
+Favorite Color:asfd
+-------------------------
+Person no:1
+Name: a
+Father Name:B
+Age:C
+Favorite Color:D
+-------------------------
+Person no:2
+Name: e
+Father Name:f
+Age:g
+Favorite Color:h
+-------------------------
+Person no:3
+Name: i
+Father Name:j
+Age:k
+Favorite Color:l
+-------------------------
+Person no:4
+Name: m
+Father Name:n
+Age:o
+Favorite Color:p
+-------------------------
+Person no:5
+Name: q
+Father Name:r
+Age:s
+Favorite Color:t
+-------------------------
