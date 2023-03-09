@@ -12,21 +12,20 @@
  */
 class Solution {
 public:
-    bool hasPathSum(TreeNode* root, int targetSum) {
+    int maxDepth(TreeNode* root) {
 
         if(root==NULL){
-            return false;
+            return 0;
         }
 
-        if(root->val == targetSum && (root->left==NULL && root->right==NULL))
-        return true;
+        if(root->left == NULL && root->right==NULL){
+            return 1;
+        }
 
-        bool leftCheck,rightCheck;
+        int leftDepth = maxDepth(root->left);
+        int rightDepth = maxDepth(root->right);
+        return leftDepth>rightDepth? leftDepth + 1 : rightDepth + 1;
 
-       leftCheck = hasPathSum(root->left,targetSum - root->val);
-       rightCheck = hasPathSum(root->right,targetSum - root->val);
-
-       return leftCheck || rightCheck;
 
     }
 };
