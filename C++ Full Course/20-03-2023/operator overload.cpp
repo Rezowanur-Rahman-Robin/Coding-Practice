@@ -1,4 +1,3 @@
-
 #include <iostream>
 
 class Account{
@@ -11,20 +10,23 @@ public:
     return * this;
   }
 
-  friend Account& operator += (Account& a, Account& b){
-    a.balance += b.balance;
-   return a;
-  }
-  friend std::ostream& operator << (std::ostream& os, const Account& a){
-    os << a.balance;
-   return os;
-  }
+  friend Account& operator += (Account& a, Account& b);
+  friend std::ostream& operator << (std::ostream& os, const Account& a);
+
 private:
   double balance;
 
 };
 
+Account& operator += (Account& a, Account& b){
+   a.balance += b.balance;
+   return a;
+ }
 
+std::ostream& operator << (std::ostream& os, const Account& a){
+   os << a.balance;
+   return os;
+}
 
 int main(){
 
@@ -34,11 +36,11 @@ int main(){
   Account acc2(100.0);
   Account acc3(100.0);
 
-  acc1 += 20.0;
+  acc1 += 50.0;
   acc1 += acc1;
 
   acc2 += 50.0;
-  acc2 += acc1;
+  acc2 += acc2;
 
   acc3.operator += (50.0);
   //acc3.operator += (acc3);   ERROR
