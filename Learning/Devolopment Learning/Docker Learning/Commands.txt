@@ -1,0 +1,102 @@
+
+
+//Check the version
+docker -v
+
+************Image*****************
+
+//pull image
+docker pull image_name
+
+//pull with version
+docker pull image_name:version
+
+//search image 
+docker search image_name
+
+//showing list of images
+docker images
+
+//deleting an image
+docker rmi image_name
+
+//build an image from dockerfile
+docker build Directory
+example: docker build .
+
+//to run an image 
+docker run --name name_of_container -d image_name/image_id  (open hoye sathe sathe off hoye jabe)
+
+docker run --name name_of_container -it -d image_name/image_id (off hobe nah)
+
+
+
+
+************Container*****************
+
+
+
+
+//list of container running
+docker ps
+
+//list of container running all the time
+docker ps -a
+
+//execute a container
+docker exec -it container_name/conatiner_id executable
+example: 
+docker exec -it web bash
+docker exec -it pythonContainer python3
+
+//to exit from a running container
+exit()
+exit
+
+//to stop a running container 
+docker stop container_name/container_id
+
+//all info of container
+docker inspect container_id
+
+//removing container from all list
+docker rm container_name/container_id
+
+//delete a running container 
+docker rm -f container_name/container_id
+
+//restart a container 
+docker restart container_name
+
+//save the state of a container in the local machine
+docker commit conatainer_name/container_id
+
+//check container logs
+docker logs container_name
+
+**************nginx**************
+
+//pulling nginx
+docker pull nginx
+
+//creating container of nginx on specific port
+docker run --name nginxContainer -d -p 8080:80 nginx (localhost 8080 te cholbe)
+
+
+
+
+**************Login DockerHub**************
+
+//for login
+docker login
+
+//for commit
+docker commit conatainer_name/container_id
+
+//for push
+docker push
+
+//for logout
+docker logout
+
+
