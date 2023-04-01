@@ -1,36 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
-
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        unordered_map<char,int> mp;
-        int cnt =0;
-        int ans = 0;
-        int lastMatching = 0;
-        for(int i=0;i<s.length();i++){
-                cout<<s[i]<<endl;
-            if(mp[s[i]]){
-                mp[s[i]]=0;
-                i=i-cnt+1;
-                cnt=0;
-
-            }
-
-            mp[s[i]]++;
-            cnt++;
-            cout<<"count:"<<cnt<<endl;
-            ans = max(ans,cnt);
-        }
-        return ans;
+       vector<int> vec(256,-1);
+       int l=0,ans=0;
+       for(int r=0;r<s.size();r++){
+           if(vec[s[r]]!=-1 && l<vec[s[r]]+1){
+               l = vec[s[r]] + 1;
+           }
+           vec[s[r]] = r;
+           ans = max(ans,r-l+1);
+       //cout<<s[r]<<"---->"<<"l:"<<l<<" r:"<<r<<" max:"<<ans<<endl;
+       }
+       return ans;
     }
 };
 
-int main()
-{
-    Solution s;
-    string str;
-    cin>>str;
-    cout<<s.lengthOfLongestSubstring(str)<<endl;
-
+int main(){
+Solution s;
+string str = "abbbbca";
+cout<<s.lengthOfLongestSubstring(str)<<endl;
 }
