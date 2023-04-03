@@ -1,0 +1,6 @@
+node benchmarks/basic-get.js 1000 3 
+node benchmarks/api-service.js 100 2 
+node benchmarks/events-service.js 1000 20
+node benchmarks/auth-service.js 1000 20
+node benchmarks/graph-service.js 1000 20
+
