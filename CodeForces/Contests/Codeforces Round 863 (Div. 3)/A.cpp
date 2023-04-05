@@ -12,16 +12,16 @@ while(t--){
     char nw=char(d+48);
 
     int i=0;
-    for(i=0;i<number.length()-1;i++){
+    for(i=0;i<number.length();i++){
         if(nw=='0'){
             number.insert(number.length(),1,nw);
             break;
-        }else if(number[i]<=nw && number[i+1]<=nw){
+        }else if(number[i]<nw){
             number.insert(i,1,nw);
             break;
         }
     }
-    if(i==number.length()-1){
+    if(i==number.length()){
         number.insert(number.length(),1,nw);
         cout<<number<<endl;
     }else{

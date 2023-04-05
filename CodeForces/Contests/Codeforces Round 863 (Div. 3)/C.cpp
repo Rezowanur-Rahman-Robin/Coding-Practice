@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 #include <vector>
 using namespace std;
 
@@ -9,22 +9,29 @@ int main() {
         int n;
         cin >> n;
         vector<int> b(n-1);
+        vector<int> a(n);
+        set<int> st;
         for (int i = 0; i < n-1; i++) {
             cin >> b[i];
+            st.insert(b[i]);
         }
-        vector<int> a(n);
-        a[0] = b[0];
-        for (int i = 1; i < n-1; i++) {
-            if (b[i] >= a[i-1] && b[i] >= a[i]) {
-                a[i+1] = b[i];
-            } else {
-                a[i] = b[i];
+        if(st.size()==1){
+            for(int i=0;i<n;i++){
+                cout<<b[0]<<" ";
             }
+            cout<<endl;
+            return 0;
         }
-        if (a[n-2] <= b[n-2]) {
-            a[n-1] = b[n-2];
-        } else {
-            a[n-2] = b[n-2];
+        a[0]=0;
+        for(int i=0;i<n-1;i++){
+            if(a[i]==b[i]){
+                a[i+1]=0;
+            }else if(a[i]<b[i]){
+                a[i+1]=b[i];
+            }else{
+                swap(a[i],a[i-1]);
+                i--;
+            }
         }
         for (int i = 0; i < n; i++) {
             cout << a[i] << " ";
