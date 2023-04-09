@@ -2,42 +2,23 @@
 using namespace std;
 
 void printMsgList(stack<string> msgStack,unordered_map<string,int> msgStore){
+    unordered_map<string,int>tempStore;
+    cout<<endl;
     while(!msgStack.empty()){
         string current = msgStack.top();
         msgStack.pop();
-        cout<<current<<" : "<<msgStore[current]<<endl;
+        if(tempStore[current]==0){
+            cout<<current<<" "<<msgStore[current]<<endl;
+            tempStore[current]++;
+        }
     }
     cout<<endl;
 
 }
-stack<string> removeDuplicateFromStackAndInsert(stack<string> msgStack,string str){
-stack<string> temp;
-stack<string> newStack;
-while(!msgStack.empty()){
-    string current = msgStack.top();
-    msgStack.pop();
-    if(current != str){
-        temp.push(current);
-    }
-}
-
-while(!temp.empty()){
-    string current = temp.top();
-    temp.pop();
-    newStack.push(current);
-}
-newStack.push(str);
-return newStack;
-}
 
 void insertNewMsg(stack<string> &msgStack,unordered_map<string,int> &msgStore,string s){
-if(msgStore[s]){
-         msgStack =removeDuplicateFromStackAndInsert(msgStack,s);
 
-
-    }else{
-     msgStack.push(s);
-    }
+    msgStack.push(s);
 
     msgStore[s]++;
     printMsgList(msgStack,msgStore);
@@ -46,16 +27,11 @@ if(msgStore[s]){
 int main(){
 unordered_map<string,int> msgStore;
 stack<string> msgStack;
-vector<string> str= {"robin","hasan","robin","hasan","nahid","abdullah","sakib"};
-for(s : str){
-    insertNewMsg(msgStack,msgStore,s);
+string msg;
+while(1){
+    cin>>msg;
+    insertNewMsg(msgStack,msgStore,msg);
 }
-
-insertNewMsg(msgStack,msgStore,"robin");
-
-insertNewMsg(msgStack,msgStore,"hasan");
-
-insertNewMsg(msgStack,msgStore,"nahid");
 
 return 0;
 }

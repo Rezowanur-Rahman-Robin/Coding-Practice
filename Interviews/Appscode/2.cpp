@@ -7,7 +7,7 @@ bool isTrending(string s){
 int getLengthScore(string s){
 int uniqueCount = 0;
 unordered_map<char,int> mp;
-for(i:s){
+for(auto i:s){
     mp[i]++;
     if(mp[i]==1) uniqueCount++;
 }
@@ -15,7 +15,6 @@ return uniqueCount*s.length();
 }
 
 string getName(string str){
-//cout<<str<<endl;
 string ans="";
 for(int i=0;i<str.length();i++){
     if(str[i]==' '){
@@ -72,10 +71,7 @@ follower = stoi(getFollower(v));
 lengthScore = getLengthScore(getValue(v));
 }
 void printTweet(){
-cout<<value<<endl;
-cout<<"Trending:"<<trending<<endl;
-cout<<"Follower:"<<follower<<endl;
-cout<<"LengthScore:"<<lengthScore<<endl<<endl;
+cout<<value<<" "<<follower<<endl;
 }
 };
 bool compare(Tweet* t1,Tweet* t2){
@@ -90,7 +86,7 @@ if(t1->lengthScore!=t2->lengthScore){
 
 vector<Tweet*> trendingSort(vector<Tweet*> t){
 vector<Tweet*>first,second;
-for(item:t){
+for(auto item:t){
     if(item->trending){
         first.push_back(item);
     }else{
@@ -103,33 +99,18 @@ first.insert(first.end(),second.begin(),second.end());
 return first;
 }
 
-
-
 int main(){
-Tweet* t1=new Tweet("robin 12 <a good boys>");
-Tweet* t2=new Tweet("hasan 20 <a good boy>#");
-Tweet* t3=new Tweet("nahid 10 <a good boy>#");
-Tweet* t4=new Tweet("shihab 20 <a good boy>");
-Tweet* t5=new Tweet("aman 12 <a good boy>#");
-Tweet* t6=new Tweet("bman 12 <a good boy>");
-Tweet* t7=new Tweet("cman 12 <a good boy>");
 
-
+string tweet;
 vector<Tweet*> vec;
-vec.push_back(t1);
-vec.push_back(t2);
-vec.push_back(t3);
-vec.push_back(t4);
-vec.push_back(t5);
-vec.push_back(t6);
-vec.push_back(t7);
-
-
-vec = trendingSort(vec);
-
-for(item : vec){
+while(1){
+    getline(cin,tweet);
+    Tweet* t=new Tweet(tweet);
+    vec.push_back(t);
+    vec = trendingSort(vec);
+    for(auto item : vec){
     item->printTweet();
+    }
 }
-
 return 0;
 }
