@@ -1,41 +1,25 @@
-#include<bits/stdc++.h>
-using namespace std;
-
 class Solution {
 public:
-    vector<string> result;
-    void findAns(string digits,int index){
-    if(index==digits.length()) return;
 
-    for(auto item:mp[digits[index]]){
-        string temp="";
-        temp+=item;
-        findAns(digits,index+1);
-        temp+=item;
-    }
+    void solve(string digits,vector<string> &ans,string output,string mp[],int position){
+         if(position>=digits.length()) {
+             ans.push_back(output);
+             return;
+         }
+         int number = digits[position]-'0';
+         string target = mp[number];
+         for(int i=0;i<target.length();i++){
+             output.push_back(target[i]);
+             solve(digits,ans,output,mp,position+1);
+             output.pop_back();
+         }
     }
     vector<string> letterCombinations(string digits) {
-        unordered_map<char,vector<char>> mp;
-        mp['2']={'a','b','c'};
-        mp['3']={'d','e','f'};
-        mp['4']={'g','h','i'};
-        mp['5']={'j','k','l'};
-        mp['6']={'m','n','o'};
-        mp['7']={'p','q','r','s'};
-        mp['8']={'t','u','v'};
-        mp['9']={'w','x','y','z'};
-
+        string mp[10] = {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        vector<string> ans;
+        if(digits.length()==0) return ans;
+        string output = "";
+        solve(digits,ans,output,mp,0);
+        return ans;
     }
-     findAns(digits,0);
-     return result;
-
 };
-
-int main(){
-Solution s;
-vector<string> result;
-result = s.letterCombinations("23");
-for(auto item : result) cout<<item<<" ";
-
-return 0;
-}
